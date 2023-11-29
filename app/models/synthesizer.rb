@@ -1,0 +1,3 @@
+class Synthesizer < ApplicationRecord
+  
+end
