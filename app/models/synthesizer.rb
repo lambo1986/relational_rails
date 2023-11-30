@@ -1,3 +1,3 @@
 class Synthesizer < ApplicationRecord
-  belongs_to :artist
+  belongs_to :musician
 end
