@@ -1,1 +1,12 @@
-<h1> Ahem </h1>
+<h1 style="font-size:375%;"> All Synths </h1>
+
+<% @synthesizers.each do |synth|%>
+  <h2><a href="https://www.google.com/search?q=:<%= synth.brand %><%= synth.name %>" target="_blank"><%= synth.name %></a></h2>
+  <ul>
+    <li><%= synth.brand %>
+    <li><%= synth.year %> (Roll-out)
+    <li><%= synth.engine %>
+    <li>$<%= synth.value %> (Approximate Used Price)
+    <li>Vintage? <%= synth.vintage %>
+  </ul>
+<% end %>
