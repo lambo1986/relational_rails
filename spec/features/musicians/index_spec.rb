@@ -60,4 +60,8 @@ RSpec.describe 'Musicians Index', type: :feature do
     visit "/musicians/#{coil.id}"
     expect(page).to have_content(coil.synthesizers.count)
   end
+
+  # it "has a link that takes the user to the synthesizers #index" do
+
+  # end
 end
