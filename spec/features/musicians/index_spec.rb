@@ -11,7 +11,7 @@ RSpec.describe 'Musicians Index', type: :feature do
     expect(page).to have_content(vangelis.name)
   end
 
-  it 'links to each musicians show page with their attributes' do
+  it 'links to each musicians show page with their attributes', type: :feature do
     coil = Musician.create!(name: "Coil", age: 42, genre: "Industrial", active: false)
     vangelis = Musician.create!(name: "Vangelis", age: 79, genre: "Film", active: false)
 
@@ -28,7 +28,7 @@ RSpec.describe 'Musicians Index', type: :feature do
     expect(page).to have_content(vangelis.active)
   end
 
-  describe 'order musicians by date created' do
+  describe 'order musicians by date created', type: :feature do
     coil = Musician.create!(name: "Coil")
     vangelis = Musician.create!(name: "Vangelis")
     bjork = Musician.create!(name: "Bjork")
@@ -38,7 +38,7 @@ RSpec.describe 'Musicians Index', type: :feature do
     let(:this) {coil.name}
     let(:that) {sw.name}
 
-    it 'shows each musician sorted by date created and displays that time' do
+    it 'shows each musician sorted by date created and displays that time', type: :feature do
 
       visit "/musicians"
       expect(page).to have_content(coil.created_at)
@@ -49,5 +49,15 @@ RSpec.describe 'Musicians Index', type: :feature do
 
       expect(this).to appear_before(that)
     end
+  end
+
+  it "shows count of musician's synths when visiting musician's #show page", type: :feature do
+    coil = Musician.create!(name: "Coil")
+    synth1 = coil.synthesizers.create!(brand: "Moog", name: "Mother32")
+    synth2 = coil.synthesizers.create!(brand: "Roland", name: "M800")
+    synth3 = coil.synthesizers.create!(brand: "Moog", name: "Subp")
+
+    visit "/musicians/#{coil.id}"
+    expect(page).to have_content(coil.synthesizers.count)
   end
 end
