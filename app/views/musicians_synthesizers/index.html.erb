@@ -1,0 +1,11 @@
+<h1>Favorite Synth of <%= @musician.name %>:</h1>
+<% @synthesizers.each do |synthesizer| %>
+<h2><%= synthesizer.brand %> <%= synthesizer.name %></h2>
+<ul>
+  <li>Year: <%= synthesizer.year %>
+  <li>Engine: <%= synthesizer.engine %>
+  <li>Value: $<%= synthesizer.value %> (Approximate)
+  <li>Voice Count: <%= synthesizer.voice_count %>
+  <li>Vintage? <%= synthesizer.vintage %>
+</ul>
+<% end %>

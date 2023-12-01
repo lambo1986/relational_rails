@@ -22,11 +22,13 @@ a:active {
 </style>
 <h1 style="font-size:257%;">List updated frequently.</h1>
 <p style="font-size:234%;">Click name for additional information, or click Favorite Synthesizer for instrument specs.</p>
+<% @musicians.all.sort_by {|musician| musician.created_at} %>
 <% @musicians.each do |musician| %>  
   <h3 style="font-size:177%;"><a href="https://www.google.com/search?q=:<%= musician.name %>" target="_blank"><%= musician.name %></a></h3>
   <p>Genre: <%= musician.genre %></p>
   <p>Age: <%= musician.age %></p>
   <p>Active? <%= musician.active %></p>
-  <p><a href="/musicians/synthesizers/<%= musician.id %>">Favorite Synthesizer:</a></p>
+  <p>Date Posted: <%= musician.created_at %></p>
+  <p><a href="/musicians/<%=musician.id%>/synthesizers/">Favorite Synthesizer:</a></p>
 <% end %>
-<a style="font-size:333%;"href="/musicians/synthesizers/">List of Synths</a>
+<a style="font-size:333%;"href="/synthesizers/">List of Synths</a>
