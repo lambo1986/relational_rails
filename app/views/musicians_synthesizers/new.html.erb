@@ -1,0 +1,20 @@
+<a style="font-size:111%;"href="/synthesizers/">List of Synths</a> <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
+<br>------------------------------------------------------------------------</br>
+<%= form_with url: "/musicians/#{@musician.id}/synthesizers/new", method: :post, local: true do |form| %>
+  <%= form.label :brand %>
+  <%= form.text_field :brand %> 
+  <%= form.label :name %>
+  <%= form.text_field :name %> 
+  <%= form.label :year %>
+  <%= form.text_field :year %> 
+  <%= form.label :engine %>
+  <%= form.text_field :engine %> 
+  <%= form.label :value %>
+  <%= form.text_field :value %> 
+  <%= form.label :voice_count %>
+  <%= form.text_field :voice_count %> 
+  <%= form.label :vintage %>
+  <%= form.text_field :vintage %> 
+
+  <%= form.submit "Create Synth" %>
+<% end %>

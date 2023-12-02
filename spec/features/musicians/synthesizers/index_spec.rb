@@ -25,8 +25,4 @@ RSpec.describe "Musician's Synths index" do
     expect(page).to have_content(synth2.voice_count)
     expect(page).to have_content(synth2.vintage)
   end
-
-  # it "has a link that takes the user to the synthesizers #index" do
-
-  # end
 end
