@@ -61,7 +61,28 @@ RSpec.describe 'Musicians Index', type: :feature do
     expect(page).to have_content(coil.synthesizers.count)
   end
 
-  # it "has a link that takes the user to the synthesizers #index" do
+  it "can be visited from any page on the site", type: :feature do
+    vangelis = Musician.create!(name: "Vangelis", age: 79, genre: "Film", active: false)
+    synth1 = vangelis.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
 
-  # end
+    visit "/"
+    click_on "List of Musicians"
+
+    visit "/musicians"
+    click_on "List of Musicians"
+
+    visit "/synthesizers"
+    click_on "List of Musicians"
+
+    visit "/musicians/#{vangelis.id}"
+    click_on "List of Musicians"
+
+    visit "/synthesizers/#{synth1.id}"
+    click_on "List of Musicians"
+
+    visit "/musicians/#{synth1.musician_id}/synthesizers"
+    click_on "List of Musicians"
+
+    expect(current_path).to eq("/musicians/")
+  end
 end
