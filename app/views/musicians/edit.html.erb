@@ -1,6 +1,6 @@
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <br>------------------------------------------------------------------------</br>
-<%= form_with url: "/musicians", method: :post, local: true do |form| %>
+<%= form_with url: "/musicians/#{@musician.id}/edit", method: :patch, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %> 
   <%= form.label :age %>
@@ -10,5 +10,5 @@
   <%= form.label :active? %>
   <%= form.text_field :active %> 
 
-  <%= form.submit "New Musician" %>
+  <%= form.submit "Update #{@musician.name}" %>
 <% end %>

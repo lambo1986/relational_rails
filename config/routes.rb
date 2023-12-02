@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get "/synthesizers/:id", to: "synthesizers#show"
   get "/musicians/:musician_id/synthesizers", to: "musicians_synthesizers#index"
   post "/musicians", to: "musicians#create"
-
+  get  "/musicians/:id/edit", to: "musicians#edit"
+  patch "/musicians/:id/edit", to: "musicians#update"
 end

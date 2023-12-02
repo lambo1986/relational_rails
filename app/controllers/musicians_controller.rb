@@ -10,6 +10,16 @@ class MusiciansController < ApplicationController
   def new
   end
 
+  def edit
+    @musician = Musician.find(params[:id])
+  end
+
+  def update
+    musician = Musician.find(params[:id])
+    musician.update(musician_params)
+    redirect_to '/musicians'
+  end
+
   def create
     musician = Musician.create!(musician_params)
     redirect_to "/musicians"
@@ -17,6 +27,6 @@ class MusiciansController < ApplicationController
 
   private
   def musician_params
-    params.permit(:name)
+    params.permit(:name, :age, :genre, :active)
   end
 end
