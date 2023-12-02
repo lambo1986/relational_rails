@@ -6,4 +6,17 @@ class MusiciansController < ApplicationController
   def show
     @musician = Musician.find(params[:id])
   end
+
+  def new
+  end
+
+  def create
+    musician = Musician.create!(musician_params)
+    redirect_to "/musicians"
+  end
+
+  private
+  def musician_params
+    params.permit(:name)
+  end
 end
