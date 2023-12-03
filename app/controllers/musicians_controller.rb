@@ -29,7 +29,13 @@ class MusiciansController < ApplicationController
 
   def create
     musician = Musician.create!(musician_params)
-    redirect_to "/musicians"
+    redirect_to("/musicians")
+  end
+
+  def destroy
+    musician = Musician.find(params[:id])
+    musician.destroy
+    redirect_to("/musicians")
   end
 
   private

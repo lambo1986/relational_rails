@@ -1,6 +1,7 @@
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1>Favorite Synths of <%= @musician.name %>:</h1>
 <% @synthesizers.each do |synthesizer| %>
+<br>---------------------------------------------------------------------------------------------------------------------</br>
 <h2><%= synthesizer.brand %> <%= synthesizer.name %></h2>
 <ul>
   <li>Year: <%= synthesizer.year %>
@@ -12,4 +13,5 @@
   <%= link_to "Edit #{synthesizer.name}", "/synthesizers/#{synthesizer.id}/edit" %>
 </ul>
 <% end %>
+<br>---------------------------------------------------------------------------------------------------------------------</br>
 <%= link_to "Add Synthesizer", "/musicians/#{@musician.id}/synthesizers/new" %>

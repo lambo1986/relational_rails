@@ -3,6 +3,7 @@
 <h1 style="font-size:123%;"> Click name for google search. </h1>
 
 <% @synthesizers.each do |synth|%>
+<br>---------------------------------------------------------------------------------------------------------------------</br>
   <h2><a href="https://www.google.com/search?q=:<%= synth.brand %><%= synth.name %>" target="_blank"><%= synth.name %></a></h2>
   <ul>
     <li><%= synth.brand %>
@@ -15,3 +16,4 @@
   </ul>
   <%= link_to "#{synth.name}'s quick info:", "/synthesizers/#{synth.id}" %>
 <% end %>
+<br>---------------------------------------------------------------------------------------------------------------------</br>

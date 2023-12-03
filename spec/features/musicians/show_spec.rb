@@ -22,7 +22,7 @@ RSpec.describe 'Musicians #show', type: :feature do
     expect(current_path).to eq("/musicians/#{synth1.musician_id}/synthesizers")
   end
 
-  it "can edit musician from show page" do
+  it "has a link to edit musician from show page" do
     musician = Musician.create!(name: "Depeche Mode")
 
     visit("/musicians/#{musician.id}")
@@ -41,5 +41,16 @@ RSpec.describe 'Musicians #show', type: :feature do
 
     expect(current_path).to eq("/musicians/#{musician.id}")
     expect(page).to have_content("Depeche Mode")
+  end
+
+  it "has a link to delete page" do
+    musician = Musician.create!(name: "Prodigy")
+
+    visit("musicians/#{musician.id}")
+
+    click_link("Delete #{musician.name}")
+
+    expect(current_path).to eq("/musicians")
+    expect(page).to_not have_content("Prodigy")
   end
 end

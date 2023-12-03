@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   post "/musicians/:id/synthesizers/new", to: "musicians_synthesizers#create"
   get "synthesizers/:id/edit", to: "synthesizers#edit"
   patch "synthesizers/:id/edit", to: "synthesizers#update"
+  delete "musicians/:id", to: "musicians#destroy"
 end
