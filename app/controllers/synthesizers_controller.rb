@@ -1,6 +1,6 @@
 class SynthesizersController < ApplicationController
   def index
-    @synthesizers = Synthesizer.all
+    @synthesizers = Synthesizer.all.where(vintage: true)
   end
 
   def show
