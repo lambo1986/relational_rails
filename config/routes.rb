@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   patch "/musicians/:id/edit", to: "musicians#update"
   get "/musicians/:id/synthesizers/new", to: "musicians_synthesizers#new"
   post "/musicians/:id/synthesizers/new", to: "musicians_synthesizers#create"
+  get "synthesizers/:id/edit", to: "synthesizers#edit"
+  patch "synthesizers/:id/edit", to: "synthesizers#update"
 end

@@ -8,3 +8,5 @@
   <li>Voice Count: <%= @synthesizer.voice_count %>
   <li>Vintage? <%= @synthesizer.vintage %>
 </ul>
+
+<%= link_to "Edit #{@synthesizer.name}", "/synthesizers/#{@synthesizer.id}/edit" %>
