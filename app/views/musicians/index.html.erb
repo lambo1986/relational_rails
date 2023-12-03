@@ -20,9 +20,10 @@ a:active {
   text-decoration: underline;
 }
 </style>
-<a style="font-size:111%;"href="/synthesizers/">List of Synths</a> <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
+<a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1 style="font-size:257%;">List updated frequently.</h1>
-<p style="font-size:234%;">Click name for additional information, or click Favorite Synthesizers for instrument specs.</p>
+<p style="font-size:177%;">Click name for google search, click Favorite Synthesizers for instrument specs.</p>
+<br>---------------------------------------------------------------------------------------------------------------------</br>
 <% @musicians.all.sort_by {|musician| musician.created_at} %>
 <% @musicians.each do |musician| %>  
   <h3 style="font-size:177%;"><a href="https://www.google.com/search?q=:<%= musician.name %>" target="_blank"><%= musician.name %></a></h3>
@@ -30,8 +31,11 @@ a:active {
   <p>Age: <%= musician.age %></p>
   <p>Active? <%= musician.active %></p>
   <p>Date Posted: <%= musician.created_at %></p>
+  <%= link_to "#{musician.name}'s quick info:", "/musicians/#{musician.id}" %>
   <p><a href="/musicians/<%=musician.id%>/synthesizers/">Favorite Synthesizers:</a></p>
   <%= link_to "Edit #{musician.name}", "/musicians/#{musician.id}/edit" %>
+  <br></br>
+  <br>---------------------------------------------------------------------------------------------------------------------</br>
 <% end %>
 <br></br>
 <%= link_to "New Musician", "/musicians/new" %>
