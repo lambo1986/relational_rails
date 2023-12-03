@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   get "synthesizers/:id/edit", to: "synthesizers#edit"
   patch "synthesizers/:id/edit", to: "synthesizers#update"
   delete "musicians/:id", to: "musicians#destroy"
+  delete "synthesizers/:id", to: "synthesizers#destroy"
 end

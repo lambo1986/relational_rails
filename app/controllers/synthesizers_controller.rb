@@ -17,6 +17,12 @@ class SynthesizersController < ApplicationController
     redirect_to "/synthesizers/#{synthesizer.id}/"
   end
 
+  def destroy
+    synthesizer = Synthesizer.find(params[:id])
+    synthesizer.destroy
+    redirect_to "/synthesizers"
+  end
+
   private
   def synth_params
     params.permit(:brand, :name, :year, :engine, :value, :voice_count, :vintage)
