@@ -1,5 +1,6 @@
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <br>------------------------------------------------------------------------</br>
+<h2>Edit <%= @musician.name %></h2>
 <%= form_with url: "/musicians/#{@musician.id}/edit", method: :patch, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %> 
