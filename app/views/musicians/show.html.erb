@@ -8,6 +8,6 @@
 </ul>
 <ul>
   <li><%= link_to "Edit #{@musician.name}", "/musicians/#{@musician.id}/edit" %>
-  <li><%= link_to "Delete #{@musician.name}", "/musicians/#{@musician.id}", method: :delete %>
+  <li><%= link_to "Delete #{@musician.name}", "/musicians/#{@musician.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 </ul>
 <a style="font-size:123%;"href="/musicians/<%= @musician.id %>/synthesizers">Favorite Synths of <%= @musician.name %></a>

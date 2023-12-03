@@ -23,6 +23,10 @@ RSpec.describe "Musician's Synths index", type: :feature do
     expect(page).to have_content(synth1.vintage)
 
     visit "/musicians/#{vangelis.id}/synthesizers"
+
+    click_link("Sort By ABC")
+
+    expect(current_path).to eq("/musicians/#{vangelis.id}/synthesizers/sorted")
     expect(page).to have_content(synth3.brand)
     expect(page).to have_content(synth3.name)
     expect(page).to have_content(synth2.brand)

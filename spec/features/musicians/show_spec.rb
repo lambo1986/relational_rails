@@ -47,7 +47,7 @@ RSpec.describe 'Musicians #show', type: :feature do
     musician = Musician.create!(name: "Prodigy")
 
     visit("musicians/#{musician.id}")
-
+    
     click_link("Delete #{musician.name}")
 
     expect(current_path).to eq("/musicians")
