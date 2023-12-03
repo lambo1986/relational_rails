@@ -1,7 +1,7 @@
 class MusiciansSynthesizersController < ApplicationController
   def index
     @musician = Musician.find(params[:musician_id])
-    @synthesizers = @musician.synthesizers
+    @synthesizers = @musician.synthesizers.order(:brand)
   end
 
   def new
