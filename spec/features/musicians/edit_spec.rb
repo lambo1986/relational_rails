@@ -18,7 +18,7 @@ RSpec.describe "musicians edit", type: :feature do
     fill_in("Name", with: "Squarepusher")
     click_button("Update #{musician.name}")
 
-    expect(current_path).to eq("/musicians")
+    expect(current_path).to eq("/musicians/#{musician.id}")
     expect(page).to have_content("Squarepusher")
   end
 end

@@ -17,8 +17,15 @@ class MusiciansController < ApplicationController
   def update
     musician = Musician.find(params[:id])
     musician.update(musician_params)
-    redirect_to '/musicians'
+
+    redirect_to "/musicians/#{musician.id}"
   end
+
+  # def update_from_show_page
+  #   musician = Musician.find(params[:id])
+  #   musician.update(musician_params)
+  #   redirect_to "/musicians/#{musician.id}"
+  # end
 
   def create
     musician = Musician.create!(musician_params)

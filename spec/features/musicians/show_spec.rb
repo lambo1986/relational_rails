@@ -21,4 +21,25 @@ RSpec.describe 'Musicians #show', type: :feature do
 
     expect(current_path).to eq("/musicians/#{synth1.musician_id}/synthesizers")
   end
+
+  it "can edit musician from show page" do
+    musician = Musician.create!(name: "Depeche Mode")
+
+    visit("/musicians/#{musician.id}")
+
+    click_link "Edit #{musician.name}"
+    expect(current_path).to eq("/musicians/#{musician.id}/edit")
+  end
+
+  it "can edit the musician" do
+    musician = Musician.create!(name: "Depech Mode")
+
+    visit("/musicians/#{musician.id}/edit")
+
+    fill_in("Name", with: "Depeche Mode")
+    click_button("Update #{musician.name}")
+
+    expect(current_path).to eq("/musicians/#{musician.id}")
+    expect(page).to have_content("Depeche Mode")
+  end
 end

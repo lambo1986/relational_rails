@@ -10,6 +10,8 @@
     <li><%= synth.engine %>
     <li>$<%= synth.value %> (Approximate Used Price)
     <li>Vintage? <%= synth.vintage %>
+    <br></br>
+    <%= link_to "Edit #{synth.name}", "/synthesizers/#{synth.id}/edit" %>
   </ul>
   <%= link_to "#{synth.name}'s quick info:", "/synthesizers/#{synth.id}" %>
 <% end %>

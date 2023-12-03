@@ -34,4 +34,16 @@ RSpec.describe "Musician's Synths index", type: :feature do
     expect(page).to have_content(synth2.vintage)
     expect(this).to appear_before(that)
   end
+
+  it "each synth has a link to edit the synth" do
+    musician = Musician.create!(name: "Moby")
+    synth1 = musician.synthesizers.create!(brand: "Garlan", name: "Posse")
+    synth2 = musician.synthesizers.create!(brand: "Yamaha", name: "DX93")
+
+    visit "/musicians/#{musician.id}/synthesizers"
+
+    click_link "Edit #{synth1.name}"
+
+    expect(current_path).to eq("/synthesizers/#{synth1.id}/edit")
+  end
 end

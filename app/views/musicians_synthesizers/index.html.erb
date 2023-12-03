@@ -8,6 +8,8 @@
   <li>Value: $<%= synthesizer.value %> (Approximate Used Price)
   <li>Voice Count: <%= synthesizer.voice_count %>
   <li>Vintage? <%= synthesizer.vintage %>
+  <br></br>
+  <%= link_to "Edit #{synthesizer.name}", "/synthesizers/#{synthesizer.id}/edit" %>
 </ul>
 <% end %>
 <%= link_to "Add Synthesizer", "/musicians/#{@musician.id}/synthesizers/new" %>

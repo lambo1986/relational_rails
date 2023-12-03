@@ -72,4 +72,16 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
 
     expect(current_path).to eq("/synthesizers/")
   end
+
+  it "each synth has a link to edit synth" do
+    coil = Musician.create!(name: "Coil")
+    vangelis = Musician.create!(name: "Vangelis")
+    synth1 = coil.synthesizers.create!(brand: "Voodoo", name: "Gabber", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
+
+    visit "/synthesizers"
+
+    click_on("Edit #{synth1.name}")
+
+    expect(current_path).to eq("/synthesizers/#{synth1.id}/edit")
+  end
 end
