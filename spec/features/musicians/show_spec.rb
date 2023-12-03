@@ -17,7 +17,7 @@ RSpec.describe 'Musicians #show', type: :feature do
     synth1 = vangelis.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
 
     visit "/musicians/#{vangelis.id}"
-    click_on "Favorite Synth of Vangelis"
+    click_on "Favorite Synths of Vangelis"
 
     expect(current_path).to eq("/musicians/#{synth1.musician_id}/synthesizers")
   end

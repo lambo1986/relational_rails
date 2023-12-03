@@ -3,18 +3,24 @@
 <%= form_with url: "/musicians/#{@musician.id}/synthesizers/new", method: :post, local: true do |form| %>
   <%= form.label :brand %>
   <%= form.text_field :brand %> 
+  <br></br>
   <%= form.label :name %>
   <%= form.text_field :name %> 
+  <br></br>
   <%= form.label :year %>
-  <%= form.text_field :year %> 
+  <%= form.text_field :year %>
+  <br></br> 
   <%= form.label :engine %>
   <%= form.text_field :engine %> 
+  <br></br>
   <%= form.label :value %>
   <%= form.text_field :value %> 
+  <br></br>
   <%= form.label :voice_count %>
   <%= form.text_field :voice_count %> 
+  <br></br>
   <%= form.label :vintage %>
   <%= form.text_field :vintage %> 
-
+  <br></br>
   <%= form.submit "Create Synth" %>
 <% end %>
