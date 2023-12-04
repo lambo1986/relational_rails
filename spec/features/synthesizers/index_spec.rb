@@ -93,6 +93,6 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
     click_button("Delete #{synth1.name}")
 
     expect(current_path).to eq("/synthesizers")
-    expect(page).to_not have_content(synthesizer.name)
+    expect(page).to_not have_content(synth1.name)
   end
 end

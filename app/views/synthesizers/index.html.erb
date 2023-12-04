@@ -5,7 +5,7 @@
 <% @synthesizers.each do |synth|%>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
   <h2><a href="https://www.google.com/search?q=:<%= synth.brand %><%= synth.name %>" target="_blank"><%= synth.name %></a></h2>
-  <ul>
+  <ul> 
     <li><%= synth.brand %>
     <li><%= synth.year %> (Roll-out)
     <li><%= synth.engine %>
@@ -13,6 +13,7 @@
     <li>Vintage? <%= synth.vintage %>
     <br></br>
     <%= link_to "Edit #{synth.name}", "/synthesizers/#{synth.id}/edit" %>
+    <%= button_to "Delete #{synth.name}", "/synthesizers/#{synth.id}", method: :delete %>
   </ul>
   <%= link_to "#{synth.name}'s quick info:", "/synthesizers/#{synth.id}" %>
 <% end %>

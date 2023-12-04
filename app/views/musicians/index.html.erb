@@ -34,6 +34,7 @@ a:active {
   <%= link_to "#{musician.name}'s quick info:", "/musicians/#{musician.id}" %>
   <p><a href="/musicians/<%=musician.id%>/synthesizers/">Favorite Synthesizers:</a></p>
   <%= link_to "Edit #{musician.name}", "/musicians/#{musician.id}/edit" %>
+  <%= button_to "Delete #{musician.name}", "/musicians/#{musician.id}", method: :delete %>
   <br></br>
   <br>---------------------------------------------------------------------------------------------------------------------</br>
 <% end %>
