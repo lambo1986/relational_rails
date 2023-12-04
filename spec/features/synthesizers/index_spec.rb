@@ -84,4 +84,15 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
 
     expect(current_path).to eq("/synthesizers/#{synth1.id}/edit")
   end
+
+  it "each synth has a button to destroy the synth" do
+    musician = Musician.create!(name: "Prodigy")
+    synth1 = musician.synthesizers.create!(brand: "Hudu", name: "Gabzzber", year: 1986, engine: "Analog", value: 2123, voice_count: 12, vintage:true)
+
+    visit "/synthesizers"
+    click_button("Delete #{synth1.name}")
+
+    expect(current_path).to eq("/synthesizers")
+    expect(page).to_not have_content(synthesizer.name)
+  end
 end

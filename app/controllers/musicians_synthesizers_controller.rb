@@ -13,10 +13,10 @@ class MusiciansSynthesizersController < ApplicationController
     @synthesizers = @musician.synthesizers.order(:brand)
   end
 
-  def sort_by_polyphony
+  def sort_by_polyphony   #found user input by checking params with pry
     @musician = Musician.find(params[:id])
-    voice_count_threshold = params[:Polyphony].to_i
-    @synthesizers = @musician.synthesizers.where("voice_count > ?", voice_count_threshold)
+    input_polyphony = params[:Polyphony]
+    @synthesizers = @musician.synthesizers.where("voice_count > #{input_polyphony}")
   end
 
   def create

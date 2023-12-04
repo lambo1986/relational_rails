@@ -43,11 +43,11 @@ RSpec.describe 'Musicians #show', type: :feature do
     expect(page).to have_content("Depeche Mode")
   end
 
-  it "has a link to delete page" do
+  it "has a link to delete" do
     musician = Musician.create!(name: "Prodigy")
 
     visit("musicians/#{musician.id}")
-    
+
     click_link("Delete #{musician.name}")
 
     expect(current_path).to eq("/musicians")

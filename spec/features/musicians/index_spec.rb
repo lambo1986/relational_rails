@@ -75,4 +75,14 @@ RSpec.describe 'Musicians Index', type: :feature do
 
     expect(current_path).to eq("/musicians/")
   end
+
+  it "has a button under each musician that will destroy the musician" do
+    musician = Musician.create!(name: "Prodigy")
+
+    visit "/musicians"
+    click_button("Delete #{musician.name}")
+
+    expect(current_path).to eq("/musicians")
+    expect(page).to_not have_content(musician.name)
+  end
 end
