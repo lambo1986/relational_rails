@@ -10,5 +10,5 @@
 </ul>
 <ul>
   <li><%= link_to "Edit #{@synthesizer.name}", "/synthesizers/#{@synthesizer.id}/edit" %>
-  <li><%= link_to "Delete #{@synthesizer.name}", "/synthesizers/#{@synthesizer.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <li><%= link_to "Delete #{@synthesizer.name}", "/synthesizers/#{@synthesizer.id}", data: { turbo_method: :delete } %>
 </ul>
