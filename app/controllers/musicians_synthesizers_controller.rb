@@ -11,7 +11,12 @@ class MusiciansSynthesizersController < ApplicationController
   def sorted
     @musician = Musician.find(params[:id])
     @synthesizers = @musician.synthesizers.order(:brand)
-    # redirect_to("/musicians/#{@musician.id}/synthesizers/sorted")
+  end
+
+  def sort_by_polyphony
+    @musician = Musician.find(params[:id])
+    voice_count_threshold = params[:Polyphony].to_i
+    @synthesizers = @musician.synthesizers.where("voice_count > ?", voice_count_threshold)
   end
 
   def create

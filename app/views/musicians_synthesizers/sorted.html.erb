@@ -1,5 +1,13 @@
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1>Favorite Synths of <%= @musician.name %>:</h1>
+
+<%= form_with url: "/musicians/#{@musician.id}/synthesizers/sort_by_polyphony", method: :get, local: true do |form| %>
+  <%= form.label :Polyphony %>
+  <%= form.text_field :Polyphony %>
+
+  <%= form.submit "Sort" %>
+<% end %>
+
 <% @synthesizers.each do |synthesizer| %>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
 <h2><%= synthesizer.brand %> <%= synthesizer.name %></h2>
