@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/", to: "welcomes#index"
   get "/musicians", to: "musicians#index"
+  get "/musicians/sort_by_synth_count", to: "musicians#sort_by_synth_count"
   get "/musicians/new", to: "musicians#new" #why did this need to go before musicians#show
   get "/musicians/:id", to: "musicians#show"
   get "/synthesizers", to: "synthesizers#index"
@@ -22,4 +23,5 @@ Rails.application.routes.draw do
   delete "/musicians/:id", to: "musicians#destroy"
   delete "/synthesizers/:id", to: "synthesizers#destroy"
   get "/musicians/:id/synthesizers/sort_by_polyphony", to: "musicians_synthesizers#sort_by_polyphony"
+
 end

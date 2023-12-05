@@ -24,10 +24,8 @@ a:active {
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1 style="font-size:257%;">List updated frequently.</h1>
 <p style="font-size:177%;">Click name for google search, click Favorite Synthesizers for instrument specs.</p>
-<%= button_to "Sort By Most Synths", "/musicians/sort_by_synth_count", method: :get %>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
-<% @musicians.all.sort_by {|musician| musician.created_at} %>
-<% @musicians.each do |musician| %>  
+<% @musicians.each do |musician| %>
   <h3 style="font-size:177%;"><a href="https://www.google.com/search?q=:<%= musician.name %>" target="_blank"><%= musician.name %></a></h3>
   <ul>
     <li>Genre: <%= musician.genre %></p>

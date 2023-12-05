@@ -51,6 +51,7 @@ RSpec.describe 'Musicians Index', type: :feature do
     end
   end
 
+
   it "can be visited from any page on the site", type: :feature do
     vangelis = Musician.create!(name: "Vangelis", age: 79, genre: "Film", active: false)
     synth1 = vangelis.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
@@ -84,5 +85,28 @@ RSpec.describe 'Musicians Index', type: :feature do
 
     expect(current_path).to eq("/musicians")
     expect(page).to_not have_content(musician.name)
+  end
+
+  describe "order musicians by synth count" do
+    coil = Musician.create!(name: "Coil")
+    vangelis = Musician.create!(name: "Vangelis")
+    bjork = Musician.create!(name: "Bjork")
+    synth1 = bjork.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
+    synth2 = coil.synthesizers.create!(brand: "Moog", name: "Voyager", year: 2002, engine: "Analog", value: 4000, voice_count: 1, vintage:false)
+    synth3 = vangelis.synthesizers.create!(brand: "Yamaha", name: "M65", year: 1976, engine: "Analog", value: 2000, voice_count: 8, vintage:true)
+    synth4 = vangelis.synthesizers.create!(brand: "Roland", name: "M5", year: 1986, engine: "Digital", value: 2000, voice_count: 8, vintage:true)
+
+    let(:this) {vangelis.name}
+    let(:that) {bjork.name}
+
+    it "has a button to sort the page by number of synths musicians have, descending" do
+      visit "/musicians"
+
+      click_button("Sort By Most Synths")
+
+      expect(current_path).to eq("/musicians/sort_by_synth_count")
+      expect(this).to appear_before(that)
+      expect(page).to have_content("Number of Favorite Synths: 2")
+    end
   end
 end

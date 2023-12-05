@@ -21,6 +21,10 @@ class MusiciansController < ApplicationController
     redirect_to "/musicians/#{musician.id}"
   end
 
+  def sort_by_synth_count
+    @musicians = Musician.all.sort_by {|musician| musician.synthesizers.count}.reverse
+  end
+
   # def update_from_show_page
   #   musician = Musician.find(params[:id])
   #   musician.update(musician_params)

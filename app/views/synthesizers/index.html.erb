@@ -1,3 +1,4 @@
+<br>---------------------------------------------------------------------------------------------------------------------</br>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1 style="font-size:311%;">All Favorite Vintage Synthesizers</h1>
 <h1 style="font-size:123%;"> Click name for google search. </h1>
@@ -12,8 +13,9 @@
     <li>$<%= synth.value %> (Approximate Used Price)
     <li>Vintage? <%= synth.vintage %>
     <br></br>
-    <%= link_to "Edit #{synth.name}", "/synthesizers/#{synth.id}/edit" %>
-    <%= button_to "Delete #{synth.name}", "/synthesizers/#{synth.id}", method: :delete %>
+    <li><%= link_to "Edit #{synth.name}", "/synthesizers/#{synth.id}/edit" %>
+    <br></br>
+    <li><%= button_to "Delete #{synth.name}", "/synthesizers/#{synth.id}", method: :delete %>
   </ul>
   <%= link_to "#{synth.name}'s quick info:", "/synthesizers/#{synth.id}" %>
 <% end %>
