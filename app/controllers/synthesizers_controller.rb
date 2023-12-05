@@ -1,6 +1,6 @@
 class SynthesizersController < ApplicationController
-  def index
-    @synthesizers = Synthesizer.all.where(vintage: true)
+  def index                                            #removes duplicate synths
+    @synthesizers = Synthesizer.all.where(vintage: true).uniq {|synth| synth.name}
   end
 
   def show
