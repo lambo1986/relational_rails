@@ -1,17 +1,38 @@
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1>Favorite Synths of <%= @musician.name %>:</h1>
-
 <%= link_to "Sort By ABC", "/musicians/#{@musician.id}/synthesizers/sorted" %>
 
 <% @synthesizers.each do |synthesizer| %>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
 <h2><%= synthesizer.brand %> <%= synthesizer.name %></h2>
 <ul>
-  <li>Year: <%= synthesizer.year %>
-  <li>Engine: <%= synthesizer.engine %>
-  <li>Value: $<%= synthesizer.value %> (Approximate Used Price)
-  <li>Voice Count: <%= synthesizer.voice_count %>
-  <li>Vintage? <%= synthesizer.vintage %>
+  <li>Year: <span style="color:Aqua;"><%= synthesizer.year %>
+  <li>Engine: <span style="color:Aqua;"><%= synthesizer.engine %>
+  <li>Value: Approximate Used Price $<span style="color:Aqua;"><%= synthesizer.value %>
+  <li>Voice Count: <span style="color:Aqua;"><%= synthesizer.voice_count %>
+  <li>Vintage? <span style="color:Aqua;"><%= synthesizer.vintage ? 'Yes' : 'No' %>
   <br></br>
   <%= link_to "Edit #{synthesizer.name}", "/synthesizers/#{synthesizer.id}/edit" %>
 </ul>

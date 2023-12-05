@@ -28,13 +28,13 @@ a:active {
 <br>---------------------------------------------------------------------------------------------------------------------</br>
 <% @musicians.all.sort_by {|musician| musician.created_at} %>
 <% @musicians.each do |musician| %>  
-  <h3 style="font-size:177%;"><a href="https://www.google.com/search?q=:<%= musician.name %>" target="_blank"><%= musician.name %></a></h3>
+  <h3 style="font-size:177%;"><a href="https://www.google.com/search?q=<%= musician.name %>" target="_blank"><%= musician.name %></a></h3>
   <ul>
-    <li>Genre: <%= musician.genre %></p>
-    <li>Age: <%= musician.age %></p>
-    <li>Active? <%= musician.active %></p>
-    <li>Number of Favorite Synths: <%= musician.synthesizers.count %></p>
-    <li>Date Posted: <%= musician.created_at %></p>
+    <li>Genre: <span style="color:Aqua;"><%= musician.genre %></p>
+    <li>Age: <span style="color:Aqua;"><%= musician.age %></p>
+    <li>Active? <span style="color:Aqua;"><%= musician.active ? 'Yes' : 'No' %></p>
+    <li>Number of Favorite Synths: <span style="color:Aqua;"><%= musician.synthesizers.count %></p>
+    <li>Date Posted: <span style="color:Aqua;"><%= musician.created_at %></p>
     <li><%= link_to "#{musician.name}'s quick info:", "/musicians/#{musician.id}" %>
     <li><p><a href="/musicians/<%=musician.id%>/synthesizers/">Favorite Synthesizers:</a></p>
     <li><%= link_to "Edit #{musician.name}", "/musicians/#{musician.id}/edit" %>

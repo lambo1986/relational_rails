@@ -20,7 +20,7 @@ RSpec.describe "Musician's Synths index", type: :feature do
     expect(page).to have_content(synth1.engine)
     expect(page).to have_content(synth1.value)
     expect(page).to have_content(synth1.voice_count)
-    expect(page).to have_content(synth1.vintage)
+    expect(page).to have_content("Vintage? Yes")
 
     visit "/musicians/#{vangelis.id}/synthesizers"
 
@@ -35,7 +35,7 @@ RSpec.describe "Musician's Synths index", type: :feature do
     expect(page).to have_content(synth2.engine)
     expect(page).to have_content(synth2.value)
     expect(page).to have_content(synth2.voice_count)
-    expect(page).to have_content(synth2.vintage)
+    expect(page).to have_content("Vintage? No")
     expect(this).to appear_before(that)
   end
 

@@ -1,3 +1,25 @@
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <br>------------------------------------------------------------------------</br>
 <h2>Edit <%= @musician.name %></h2>
@@ -10,6 +32,5 @@
   <%= form.text_field :genre %> 
   <%= form.label :active? %>
   <%= form.text_field :active %> 
-
   <%= form.submit "Update #{@musician.name}" %>
 <% end %>

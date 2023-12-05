@@ -15,8 +15,8 @@ class MusiciansSynthesizersController < ApplicationController
 
   def sort_by_polyphony   #found user input by checking params with pry
     @musician = Musician.find(params[:id])
-    input_polyphony = params[:Polyphony]
-    @synthesizers = @musician.synthesizers.where("voice_count > #{input_polyphony}")
+    input_polyphony = params[:Polyphony]        #I found >= more useful than > for this content
+    @synthesizers = @musician.synthesizers.where("voice_count >= #{input_polyphony}")
   end
 
   def create
@@ -24,12 +24,6 @@ class MusiciansSynthesizersController < ApplicationController
     synthesizer = musician.synthesizers.create!(synth_params)
     redirect_to "/musicians/#{synthesizer.musician_id}/synthesizers/"
   end
-
-  # def destroy
-  #   synthesizer = Synthesizer.find(params[:id])
-  #   synthesizer.destroy
-  #   redirect_to "/synthesizers"
-  # end
 
   private
   def synth_params

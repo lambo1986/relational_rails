@@ -7,9 +7,6 @@ class MusiciansController < ApplicationController
     @musician = Musician.find(params[:id])
   end
 
-  def new
-  end
-
   def edit
     @musician = Musician.find(params[:id])
   end
@@ -24,12 +21,6 @@ class MusiciansController < ApplicationController
   def sort_by_synth_count
     @musicians = Musician.all.sort_by {|musician| musician.synthesizers.count}.reverse
   end
-
-  # def update_from_show_page
-  #   musician = Musician.find(params[:id])
-  #   musician.update(musician_params)
-  #   redirect_to "/musicians/#{musician.id}"
-  # end
 
   def create
     musician = Musician.create!(musician_params)

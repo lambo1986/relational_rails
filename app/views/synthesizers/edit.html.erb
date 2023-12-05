@@ -1,4 +1,25 @@
-
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <br>------------------------------------------------------------------------</br>
 <h2>Edit <%= @synthesizer.name %></h2>
@@ -24,6 +45,5 @@
   <%= form.label :vintage %>
   <%= form.text_field :vintage %> 
   <br></br>
-
   <%= form.submit "Update #{@synthesizer.name}" %>
 <% end %>

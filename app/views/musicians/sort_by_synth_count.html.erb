@@ -20,6 +20,28 @@ a:active {
   text-decoration: underline;
 }
 </style>
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1 style="font-size:257%;">List updated frequently.</h1>
@@ -30,7 +52,7 @@ a:active {
   <ul>
     <li>Genre: <%= musician.genre %></p>
     <li>Age: <%= musician.age %></p>
-    <li>Active? <%= musician.active %></p>
+    <li>Active? <%= musician.active ? 'Yes' : 'No' %></p>
     <li>Number of Favorite Synths: <%= musician.synthesizers.count %></p>
     <li>Date Posted: <%= musician.created_at %></p>
     <li><%= link_to "#{musician.name}'s quick info:", "/musicians/#{musician.id}" %>

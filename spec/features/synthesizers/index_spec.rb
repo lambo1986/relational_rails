@@ -9,8 +9,8 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
 
     visit "/synthesizers"
 
-    expect(page).to_not have_content("Vintage? false")
-    expect(page).to have_content("Vintage? true")
+    expect(page).to_not have_content "Vintage? No"
+    expect(page).to have_content "Vintage? Yes"
 
     expect(page).to have_content(synth1.brand)
     expect(page).to have_content(synth1.name)
@@ -18,7 +18,7 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
     expect(page).to have_content(synth1.engine)
     expect(page).to have_content(synth1.value)
     expect(page).to have_content(synth1.voice_count)
-    expect(page).to have_content(synth1.vintage)
+    expect(page).to have_content("Vintage? Yes")
 
     expect(page).to_not have_content(synth2.name)
   end
