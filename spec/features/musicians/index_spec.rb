@@ -19,13 +19,13 @@ RSpec.describe 'Musicians Index', type: :feature do
     expect(page).to have_content(coil.name)
     expect(page).to have_content(coil.age)
     expect(page).to have_content(coil.genre)
-    expect(page).to have_content(coil.active)
+    expect(page).to have_content("Active? No")
 
     visit "/musicians/#{vangelis.id}"
     expect(page).to have_content(vangelis.name)
     expect(page).to have_content(vangelis.age)
     expect(page).to have_content(vangelis.genre)
-    expect(page).to have_content(vangelis.active)
+    expect(page).to have_content("Active? No")
   end
 
   describe 'order musicians by date created', type: :feature do

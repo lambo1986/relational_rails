@@ -21,14 +21,14 @@ a:active {
 }
 </style>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
-<h1><%= @synthesizer.brand %></h1>
+<h1 style="color:Orange;" ><%= @synthesizer.brand %></h1>
 <ul>
-  <li>Name: <%= @synthesizer.name %>
-  <li>Year: <%= @synthesizer.year %>
-  <li>Engine: <%= @synthesizer.engine %>
-  <li>Value: $<%= @synthesizer.value %>(Approximate used price.)
-  <li>Voice Count: <%= @synthesizer.voice_count %>
-  <li>Vintage? <%= @synthesizer.vintage %>
+  <li>Name: <span style="color:Aqua;"><%= @synthesizer.name %>
+  <li>Year: <span style="color:Aqua;"><%= @synthesizer.year %>
+  <li>Engine: <span style="color:Aqua;"><%= @synthesizer.engine %>
+  <li>Approximate Used Price: <span style="color:Aqua;">$<%= @synthesizer.value %>
+  <li>Voice Count: <span style="color:Aqua;"><%= @synthesizer.voice_count %>
+  <li>Vintage? <span style="color:Aqua;"><%= @synthesizer.vintage ? 'Yes' : 'No' %>
 </ul>
 <ul>
   <li><%= link_to "Edit #{@synthesizer.name}", "/synthesizers/#{@synthesizer.id}/edit" %>

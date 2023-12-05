@@ -22,14 +22,14 @@ a:active {
 </style>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
-<h1 style="font-size:311%;">All Favorite Vintage Synthesizers</h1>
-<h1 style="font-size:123%;"> Click name for google search. </h1>
+<h1 style="color:Orange;font-size:311%;">All Favorite Vintage Synthesizers</h1>
+<h3 style="color:Orange;font-size:177%;"> Click name for google search. </h3>
 
 <% @synthesizers.each do |synth|%>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
   <h2><a href="https://www.google.com/search?q=<%= synth.brand %> <%= synth.name %>" target="_blank"><%= synth.name %></a></h2>
   <ul> 
-    <li>Brand: <%= synth.brand %>
+    <li>Brand: <span style="color:Aqua;"><%= synth.brand %>
     <li>First Production Year: <span style="color:Aqua;"><%= synth.year %>
     <li>Engine: <span style="color:Aqua;"><%= synth.engine %>
     <li>Approximate Used Price: $<span style="color:Aqua;"><%= synth.value %> 

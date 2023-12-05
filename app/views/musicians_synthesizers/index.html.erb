@@ -21,7 +21,7 @@ a:active {
 }
 </style>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
-<h1>Favorite Synths of <%= @musician.name %>:</h1>
+<h1 style="color:Orange;" >Favorite Synths of <%= @musician.name %>:</h1>
 <%= link_to "Sort By ABC", "/musicians/#{@musician.id}/synthesizers/sorted" %>
 <%= form_with url: "/musicians/#{@musician.id}/synthesizers/sort_by_polyphony", method: :get, local: true do |form| %>
   <%= form.label :Polyphony %>
@@ -31,7 +31,7 @@ a:active {
 
 <% @synthesizers.each do |synthesizer| %>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
-<h2><%= synthesizer.brand %> <%= synthesizer.name %></h2>
+<h2 style="color:Orange;" ><%= synthesizer.brand %> <%= synthesizer.name %></h2>
 <ul>
   <li>Year: <span style="color:Aqua;"><%= synthesizer.year %>
   <li>Engine: <span style="color:Aqua;"><%= synthesizer.engine %>

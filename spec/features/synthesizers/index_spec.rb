@@ -36,7 +36,7 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
     expect(page).to have_content(synth1.engine)
     expect(page).to have_content(synth1.value)
     expect(page).to have_content(synth1.voice_count)
-    expect(page).to have_content(synth1.vintage)
+    expect(page).to have_content("Vintage? Yes")
 
     visit "/synthesizers/#{synth2.id}"
     expect(page).to have_content(synth2.brand)
@@ -45,7 +45,7 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
     expect(page).to have_content(synth2.engine)
     expect(page).to have_content(synth2.value)
     expect(page).to have_content(synth2.voice_count)
-    expect(page).to have_content(synth2.vintage)
+    expect(page).to have_content("Vintage? No")
   end
 
   it "can be visited from any page on the site", type: :feature do

@@ -21,12 +21,12 @@ a:active {
 }
 </style>
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
-<h1><%= @musician.name %></h1>
+<h1 style="color:Orange;" ><%= @musician.name %></h1>
 <ul>
-  <li>Age: <%= @musician.age %>
-  <li>Genre: <%= @musician.genre %>
-  <li>Active? <%= @musician.active %>
-  <li>Synth Count: <%= @musician.synthesizers.count %>
+  <li>Age: <span style="color:Aqua;"><%= @musician.age %>
+  <li>Genre: <span style="color:Aqua;"><%= @musician.genre %>
+  <li>Active? <span style="color:Aqua;"><%= @musician.active ? 'Yes' : 'No' %>
+  <li>Synth Count: <span style="color:Aqua;"><%= @musician.synthesizers.count %>
 </ul>
 <ul>
   <li><%= link_to "Edit #{@musician.name}", "/musicians/#{@musician.id}/edit" %>
