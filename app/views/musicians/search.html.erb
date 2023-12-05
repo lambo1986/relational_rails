@@ -25,14 +25,8 @@ a:active {
 <h1 style="color:Orange;font-size:257%;">List updated frequently.</h1>
 <h1 style="color:Orange;font-size:177%;">Click name for google search, click Favorite Synthesizers for instrument specs.</h1>
 <%= button_to "Sort By Most Synths", "/musicians/sort_by_synth_count", method: :get %>
-<br></br>
-<%= form_with url: "/musicians/search", method: :get, local: true do |form| %>
-  <%= form.label :Search %>
-  <%= form.text_field :Search %>
-  <%= form.submit "Go" %>
-<% end %>
+
 <br>---------------------------------------------------------------------------------------------------------------------</br>
-<% @musicians.all.sort_by {|musician| musician.created_at} %>
 <% @musicians.each do |musician| %>  
   <h3 style="font-size:177%;"><a href="https://www.google.com/search?q=<%= musician.name %>" target="_blank"><%= musician.name %></a></h3>
   <ul>

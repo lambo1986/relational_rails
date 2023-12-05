@@ -11,6 +11,11 @@ class MusiciansController < ApplicationController
     @musician = Musician.find(params[:id])
   end
 
+  def search
+    input_name = params[:Search]
+    @musicians = Musician.where(name: input_name)
+  end
+
   def update
     musician = Musician.find(params[:id])
     musician.update(musician_params)

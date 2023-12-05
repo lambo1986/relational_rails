@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/", to: "welcomes#index"
   get "/musicians", to: "musicians#index"
+  get "/musicians/search", to: "musicians#search"
   get "/musicians/sort_by_synth_count", to: "musicians#sort_by_synth_count"
   get "/musicians/new", to: "musicians#new" #why did this need to go before musicians#show
   get "/musicians/:id", to: "musicians#show"
+  get "/synthesizers/search", to: "synthesizers#search"
   get "/synthesizers", to: "synthesizers#index"
   get "/synthesizers/:id", to: "synthesizers#show"
   get "/musicians/:id/synthesizers/sorted", to: "musicians_synthesizers#sorted"

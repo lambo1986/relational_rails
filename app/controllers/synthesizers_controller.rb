@@ -17,6 +17,11 @@ class SynthesizersController < ApplicationController
     redirect_to "/synthesizers/#{synthesizer.id}/"
   end
 
+  def search
+    input_name = params[:Search]
+    @synthesizers = Synthesizer.where(name: input_name)
+  end
+
   def destroy
     synthesizer = Synthesizer.find(params[:id])
     synthesizer.destroy

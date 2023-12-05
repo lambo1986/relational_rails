@@ -109,4 +109,19 @@ RSpec.describe 'Musicians Index', type: :feature do
       expect(page).to have_content("Number of Favorite Synths: 2")
     end
   end
+
+  it "has a form to search for the specific name of a musician and match it" do
+    coil = Musician.create!(name: "Coil")
+    vangelis = Musician.create!(name: "Vangelis")
+    bjork = Musician.create!(name: "Bjork")
+
+    visit "/musicians"
+
+    fill_in("Search", with: "Bjork")
+    click_button("Go")
+
+    expect(current_path).to eq("/musicians/search")
+    expect(page).to have_content("Bjork")
+    expect(page).to_not have_content("Coil")
+  end
 end

@@ -24,11 +24,7 @@ a:active {
 <a style="font-size:111%;"href="/synthesizers/">List of Synths</a> ||| <a style="font-size:111%;"href="/musicians/">List of Musicians</a>
 <h1 style="color:Orange;font-size:311%;">All Favorite Vintage Synthesizers</h1>
 <h3 style="color:Orange;font-size:177%;"> Click name for google search. </h3>
-<%= form_with url: "/synthesizers/search", method: :get, local: true do |form| %>
-  <%= form.label :Search %>
-  <%= form.text_field :Search %>
-  <%= form.submit "Go" %>
-<% end %>
+
 <% @synthesizers.each do |synth|%>
 <br>---------------------------------------------------------------------------------------------------------------------</br>
   <h2><a href="https://www.google.com/search?q=<%= synth.brand %> <%= synth.name %>" target="_blank"><%= synth.name %></a></h2>

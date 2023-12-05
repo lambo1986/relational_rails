@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Synthesizers Index Page", type: :feature do
   it "when I visit '/synthesizers' I see all synths and attributes if vintage == true", type: :feature do
+
     coil = Musician.create!(name: "Coil")
     vangelis = Musician.create!(name: "Vangelis")
     synth1 = coil.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
@@ -94,5 +95,24 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
 
     expect(current_path).to eq("/synthesizers")
     expect(page).to_not have_content(synth1.name)
+  end
+
+  it "has a form to search for the specific name of a synth and match it" do
+    coil = Musician.create!(name: "Coil")
+    vangelis = Musician.create!(name: "Vangelis")
+    bjork = Musician.create!(name: "Bjork")
+    synth1 = bjork.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
+    synth2 = coil.synthesizers.create!(brand: "Moog", name: "Voyager", year: 2002, engine: "Analog", value: 4000, voice_count: 1, vintage:false)
+    synth3 = vangelis.synthesizers.create!(brand: "Yamaha", name: "M65", year: 1976, engine: "Analog", value: 2000, voice_count: 8, vintage:true)
+    synth4 = vangelis.synthesizers.create!(brand: "Roland", name: "M5", year: 1986, engine: "Digital", value: 2000, voice_count: 8, vintage:true)
+
+    visit "/synthesizers"
+
+    fill_in("Search", with: "Juno-6")
+    click_button("Go")
+
+    expect(current_path).to eq("/synthesizers/search")
+    expect(page).to have_content("Juno-6")
+    expect(page).to_not have_content("M65")
   end
 end
