@@ -25,5 +25,4 @@ Rails.application.routes.draw do
   delete "/musicians/:id", to: "musicians#destroy"
   delete "/synthesizers/:id", to: "synthesizers#destroy"
   get "/musicians/:id/synthesizers/sort_by_polyphony", to: "musicians_synthesizers#sort_by_polyphony"
-
 end

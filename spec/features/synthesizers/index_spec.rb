@@ -115,4 +115,17 @@ RSpec.describe "Synthesizers Index Page", type: :feature do
     expect(page).to have_content("Juno-6")
     expect(page).to_not have_content("M65")
   end
+
+  it "Won't show duplicate synths" do
+    coil = Musician.create!(name: "Coil")
+    vangelis = Musician.create!(name: "Vangelis")
+    bjork = Musician.create!(name: "Bjork")
+    synth1 = bjork.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
+    synth2 = coil.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
+    synth3 = vangelis.synthesizers.create!(brand: "Roland", name: "Juno-6", year: 1982, engine: "Analog", value: 2000, voice_count: 6, vintage:true)
+
+    visit "/synthesizers"
+
+    expect(page).to have_content("Juno-6", count: 4)
+  end
 end
